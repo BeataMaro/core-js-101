@@ -27,8 +27,17 @@
  *  21 => 'Fizz'
  *
  */
-function getFizzBuzz(/* num */) {
-  throw new Error('Not implemented');
+function getFizzBuzz(num) {
+  switch (true) {
+    case (num % 3 === 0 && num % 5 === 0):
+      return 'FizzBuzz';
+    case num % 3 === 0:
+      return 'Fizz';
+    case num % 5 === 0:
+      return 'Buzz';
+    default:
+      return num;
+  }
 }
 
 
@@ -43,8 +52,8 @@ function getFizzBuzz(/* num */) {
  *   5  => 120
  *   10 => 3628800
  */
-function getFactorial(/* n */) {
-  throw new Error('Not implemented');
+function getFactorial(n) {
+  return [...new Array(n)].map((el, idx) => idx + 1).reduce((acc, total) => acc * total);
 }
 
 
@@ -60,8 +69,8 @@ function getFactorial(/* n */) {
  *   5,10  =>  45 ( = 5+6+7+8+9+10 )
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
-function getSumBetweenNumbers(/* n1, n2 */) {
-  throw new Error('Not implemented');
+function getSumBetweenNumbers(n1, n2) {
+  return [...new Array(n2 - n1 + 1)].map((el, idx) => idx + n1).reduce((acc, sum) => acc + sum);
 }
 
 
@@ -164,8 +173,9 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const letters = str.split('');
+  return letters.filter((el) => letters.indexOf(el) === letters.lastIndexOf(el))[0];
 }
 
 
@@ -208,8 +218,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -225,8 +235,8 @@ function reverseString(/* str */) {
  *   87354 => 45378
  *   34143 => 34143
  */
-function reverseInteger(/* num */) {
-  throw new Error('Not implemented');
+function reverseInteger(num) {
+  return +(num.toString().split('').reverse().join(''));
 }
 
 
@@ -257,7 +267,7 @@ function isCreditCardNumber(/* ccn */) {
 /**
  * Returns the digital root of integer:
  *   step1 : find sum of all digits
- *   step2 : if sum > 9 then goto step1 otherwise return the sum
+ *   step2 : if sum > 9 then go to step1 otherwise return the sum
  *
  * @param {number} n
  * @return {number}
@@ -268,8 +278,11 @@ function isCreditCardNumber(/* ccn */) {
  *   10000 ( 1+0+0+0+0 = 1 ) => 1
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
-function getDigitalRoot(/* num */) {
-  throw new Error('Not implemented');
+function getDigitalRoot(num) {
+  const arr = (int) => int.toString().split('');
+  const sum = (numbers) => arr(numbers).map((el) => +el).reduce((acc, total) => acc + total);
+  const result = sum(num);
+  return result > 9 ? sum(result) : result;
 }
 
 
