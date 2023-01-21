@@ -53,15 +53,12 @@ function willYouMarryMe(isPositiveAnswer) {
  *    const promises = [Promise.resolve(1), Promise.resolve(3), Promise.resolve(12)]
  *    const p = processAllPromises(promises);
  *    p.then((res) => {
- *      console.log(res) // => [1, 2, 3]
+ *      console.log(res) // => [1, 3, 12]
  *    })
  *
  */
-function processAllPromises(/* array */) {
-  // const resolvedPromises = [];
-  // array.map((promise) => Promise.resolve(promise).then((data) => resolvedPromises.push(data)));
-  // return new Promise((resolve) => resolve(resolvedPromises));
-  throw new Error('Not implemented');
+function processAllPromises(array) {
+  return Promise.all([...array]);
 }
 
 /**
@@ -83,8 +80,8 @@ function processAllPromises(/* array */) {
  *    })
  *
  */
-function getFastestPromise(/* array */) {
-  throw new Error('Not implemented');
+function getFastestPromise(array) {
+  return Promise.race(array);
 }
 
 /**
