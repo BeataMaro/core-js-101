@@ -89,8 +89,13 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isTriangle(a, b, c) {
+  const sides = [a, b, c];
+  const max = Math.max(...sides);
+  const idx = sides.indexOf(max);
+  const shortestSides = sides.filter((el, i) => i !== idx);
+  const sumOfShortestSides = shortestSides.reduce((total, acc) => total + acc);
+  return sumOfShortestSides > max;
 }
 
 
@@ -157,8 +162,12 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  const dist = (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2;
+  if (dist < circle.radius ** 2) {
+    return true;
+  }
+  return false;
 }
 
 
@@ -308,6 +317,53 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(/* str */) {
+  // if (str === '') return true;
+  // if (str === '][') return false;
+  // const charCodes = [];
+  // const bracket1 = {
+  //   code: 123, occurs: 0,
+  // };
+  // const bracket2 = {
+  //   code: 125, occurs: 0,
+  // };
+  // const bracket3 = {
+  //   code: 91, occurs: 0,
+  // };
+  // const bracket4 = {
+  //   code: 93, occurs: 0,
+  // };
+  // const bracket5 = {
+  //   code: 40, occurs: 0,
+  // };
+  // const bracket6 = {
+  //   code: 41, occurs: 0,
+  // };
+  // const bracket7 = {
+  //   code: 60, occurs: 0,
+  // };
+  // const bracket8 = {
+  //   code: 62, occurs: 0,
+  // };
+  // str.split('').map((bracket) => charCodes.push(bracket.charCodeAt(0)));
+  // charCodes.map((numb) => {
+  //   if (numb === bracket1.code) bracket1.occurs += 1;
+  //   if (numb === bracket2.code) bracket2.occurs += 1;
+  //   if (numb === bracket3.code) bracket3.occurs += 1;
+  //   if (numb === bracket4.code) bracket4.occurs += 1;
+  //   if (numb === bracket5.code) bracket5.occurs += 1;
+  //   if (numb === bracket6.code) bracket6.occurs += 1;
+  //   if (numb === bracket7.code) bracket7.occurs += 1;
+  //   if (numb === bracket8.code) bracket8.occurs += 1;
+  //   return false;
+  // });
+  // const parentheses = bracket1.occurs === bracket2.occurs;
+  // const square = bracket3.occurs === bracket4.occurs;
+  // const curly = bracket5.occurs === bracket6.occurs;
+  // const angly = bracket7.occurs === bracket8.occurs;
+  // if (parentheses && square && curly && angly) {
+  //   return true;
+  // }
+  // return false;
   throw new Error('Not implemented');
 }
 
