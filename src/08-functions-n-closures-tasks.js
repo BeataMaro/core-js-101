@@ -23,8 +23,9 @@
  *   getComposition(Math.sin, Math.asin)(x) => Math.sin(Math.asin(x))
  *
  */
-function getComposition(/* f, g */) {
-  throw new Error('Not implemented');
+function getComposition(f, g) {
+  const pipe = (...fns) => (x) => fns.reduce((a, b) => b(a), x);
+  return pipe(g, f);
 }
 
 
@@ -44,8 +45,8 @@ function getComposition(/* f, g */) {
  *   power05(16) => 4
  *
  */
-function getPowerFunction(/* exponent */) {
-  throw new Error('Not implemented');
+function getPowerFunction(exponent) {
+  return (x) => x ** exponent;
 }
 
 
@@ -63,6 +64,7 @@ function getPowerFunction(/* exponent */) {
  *   getPolynom()      => null
  */
 function getPolynom() {
+  // return (a, b, c, x) => a * x ** 2 + b * x + c;
   throw new Error('Not implemented');
 }
 
@@ -81,8 +83,17 @@ function getPolynom() {
  *   ...
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
-function memoize(/* func */) {
-  throw new Error('Not implemented');
+function memoize(func) {
+  const cache = {};
+  return (...args) => {
+    const n = args[0];
+    if (n in cache) {
+      return cache[n];
+    }
+    const result = func(n);
+    cache[n] = result;
+    return result;
+  };
 }
 
 
@@ -102,10 +113,20 @@ function memoize(/* func */) {
  * retryer() => 2
  */
 function retry(/* func, attempts */) {
+  // return () => [...Array(attempts)].map(() => func());
+  // return (f, atts) => {
+  //   for (let i = 0; i <= atts; i += 1) {
+  //     try {
+  //       return f();
+  //     } catch (e) {
+  //       if (atts === 0) {
+  //         throw new Error(e);
+  //       }
+  //     }
+  //   }
+  // };
   throw new Error('Not implemented');
 }
-
-
 /**
  * Returns the logging wrapper for the specified method,
  * Logger has to log the start and end of calling the specified function.

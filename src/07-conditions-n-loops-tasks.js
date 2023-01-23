@@ -464,6 +464,33 @@ function getMatrixProduct(/* m1, m2 */) {
  *
  */
 function evaluateTicTacToePosition(/* position */) {
+  // const winningCombinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
+  //   [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+
+  // function findWinner(pos, symbol) {
+  //   const initialPositions = pos.map((row) => {
+  //     if (row.length === 2) {
+  //       row.push('undefined');
+  //       return row;
+  //     }
+  //     return row;
+  //   });
+  //   const arrayPosition = initialPositions.map((el) => el.toString().split(',')).flat();
+  //   const symbolOccursIdxs = arrayPosition.reduce((arr, acc, i) => {
+  //     if (acc === symbol) {
+  //       arr.push(i);
+  //     }
+  //     return arr;
+  //   }, []);
+  //   return winningCombinations.some((com) => JSON.stringify(com)
+  //   === JSON.stringify(symbolOccursIdxs));
+  // }
+  // if (findWinner(position, '0')) {
+  //   return '0';
+  // }
+  // if (findWinner(position, 'X')) {
+  //   return 'X';
+  // } return undefined;
   throw new Error('Not implemented');
 }
 
