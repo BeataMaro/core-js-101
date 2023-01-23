@@ -190,15 +190,16 @@ function partialUsingArguments(fn, ...args1) {
  *   getId4() => 7
  *   getId10() => 11
  */
-function getIdGeneratorFunction(/* startFrom */) {
-  // let id = start;
-  // while (true) {
-  // yield id;
-  // yield id += 1;
-  // }
+function getIdGeneratorFunction(startFrom) {
+  const cache = { id: startFrom - 1 };
 
-  throw new Error('Not implemented');
+  const generateId = () => {
+    cache.id += 1;
+    return cache.id;
+  };
+  return generateId;
 }
+
 module.exports = {
   getComposition,
   getPowerFunction,
